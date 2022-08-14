@@ -27,6 +27,22 @@
             'Your browser doesn\'t support HTML5 videos.')
         %>
 
+    <% } else if (ctx.post.type === 'audio') { %>
+
+        <%= ctx.makeElement(
+            'audio', {
+                class: 'resize-listener',
+                controls: true,
+                loop: (ctx.post.flags || []).includes('loop'),
+                autoplay: ctx.autoplay,
+            },
+            ctx.makeElement('source', {
+                type: ctx.post.mimeType,
+                src: ctx.post.contentUrl,
+            }),
+            'Your browser doesn\'t support HTML5 audio files.')
+        %>
+
     <% } else { console.log(new Error('Unknown post type')); } %>
 
     <div class='post-overlay resize-listener'>
