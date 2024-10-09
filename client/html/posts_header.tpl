@@ -16,7 +16,6 @@
         %><form class='horizontal bulk-edit bulk-edit-tags'><%
             %><span class='append hint'>Tagging with:</span><%
             %><a href class='mousetrap button append open'>Mass tag</a><%
-            %><wbr/><%
             %><%= ctx.makeTextInput({name: 'tag', value: ctx.parameters.tag}) %><%
             %><input class='mousetrap start' type='submit' value='Start tagging'/><%
             %><a href class='mousetrap button append close'>Stop tagging</a><%
@@ -26,6 +25,13 @@
         %><form class='horizontal bulk-edit bulk-edit-safety'><%
             %><a href class='mousetrap button append open'>Mass edit safety</a><%
             %><a href class='mousetrap button append close'>Stop editing safety</a><%
+        %></form><%
+    %><% } %><%
+    %><% if (ctx.canBulkDelete) { %><%
+        %><form class='horizontal bulk-edit bulk-edit-delete'><%
+            %><a href class='mousetrap button append open'>Mass delete</a><%
+            %><input class='mousetrap start' type='submit' value='Delete selected posts'/><%
+            %><a href class='mousetrap button append close'>Stop deleting</a><%
         %></form><%
     %><% } %><%
 %></div>
